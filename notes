@@ -1,0 +1,92 @@
+
+10/29/2021
+----------
+
+*Diff between linear and logistic regression?
+-> Linear is used for regression, logisitic is used for classification
+
+*Why can't I use logistic for regression issues?
+-> Because the function pushes the input to create extreme output values so i can't calculate any values in between
+
+*What question does the gradient calculation ask?
+-> By changing that parameter, how much would the cost change?
+-> How much should I change that parameter?
+-> When we get a certain result for a weight that is bigger than another, then we should change that weight more because changing that weight would help bring down the cost more than other variables.
+   -> The gradient calculation looks at the impact of that variable and then tells us the direction to change the particular parameter to gain the best reduction for our cost
+   
+*How does the chain rule get us the value to change the weight by?
+-> Once you have the derivation variables, those variables have actual values. Just substitute the variables with the values for those and then you have the gradient
+
+
+10/31/2021
+----------
+
+*What is RL?
+-> https://ai.stackexchange.com/questions/4456/whats-the-difference-between-model-free-and-model-based-reinforcement-learning
+-> "At each time step, the agent decides and executes an action, a, on an environment, and the environment responds to the agent by moving from the current state (of the environment), s, to the next state (of the environment), s′, and by emitting a scalar signal, called the reward, r."
+-> "A MDP is a way of representing the "dynamics" of the environment, that is, the way the environment will react to the possible actions the agent might take, at a given state. More precisely, an MDP is equipped with a transition function (or "transition model"), which is a function that, given the current state of the environment and an action (that the agent might take), outputs a probability of moving to any of the next states. A reward function is also associated with an MDP. Intuitively, the reward function outputs a reward, given the current state of the environment (and, possibly, an action taken by the agent and the next state of the environment). Collectively, the transition and reward functions are often called the model of environment. To conclude, the MDP is the problem and the solution to the problem is a policy. Furthermore, the "dynamics" of the environment are governed by the transition and reward functions (that is, the "model")."
+-> Summarizing what's above: Mathematically representing the the states, actions, rewards and transitions along with a reward and transition function is called a MDP. The reward and transition function determine how the states and actions change (how the agent and envrionment behave)
+-> Remember that the transition and reward functions are the MODEL of the environment because they predict the behaviour of the agent and env.
+
+*What is TD Learning?
+-> *Diff between model free and model based learning?
+   -> In model-based, we have the reward and transition function to help build a policy. In the other, we take an action and see what the environment does to build a policy as we don't have a "model" i.e. the reward and transition functions
+-> *What is monte-carlo evaluation?
+   -> Takes all actions possible and does value update at end.
+   -> It only looks at time step t and not ahead
+-> *Diff between reward function and value function?
+   -> In a game of tic tac toe (ttt), if i have two x's, placing a third x in a row would give me a reward of 1. But how do i know where to place the third x? Only by placing it do i get the reward but before that, I have no clue. The value function takes care of this. By working backwards from the reward, it has told me where to place the third x to get the reward
+-> *What is the diff between monte carlo and td learning?
+   -> *What is bootstrapping?
+      -> When you are using calculating the value of a current variable by using an estimate of the future value of that variable (like in Q-Learning)
+   -> They are both model-free methods. Meaning they learn by pure trial and error to estimate value function (which is discounted reward over a time horizon)
+   -> In MC, we play the game till the end and see what the rewards are. Then we use those rewards to calculate the value. In TD, without waiting till the end, we estimate what the future value of the current value would be. This makes it a bit more inaccurate but the updates happen faster
+  -> *What is the bellman equation?
+     -> *What is the value function?
+        -> https://towardsdatascience.com/the-bellman-equation-59258a0d3fa7
+        -> We are in a state. Then looking at the transition probabilities and rewards from that state to all possible future states from there, we calculate the value. If we can move in 4 directions from state, then we need to calculate the reward*transition_prob from all 4 directions and then from future directions from there recursively (look at the equations in that article)
+       
+
+11/01/2021
+----------
+
+[Look at jupyter notebook located in /home/kavi/uni_classes/control_learning_rob537/hw3]
+
+*What is the diff between policy and value iteration?
+-> They both do the same algo to determine the value function (think of filling an array with the correct values which is the value function)
+-> However, policy iteration gives a new policy at each step (policy evaluation). Value iteration does the value filling till end and gives us one policy at the end
+-> Value iteration contains the max operation for calculating the value which makes in non-linear (apparently)
+-> https://stackoverflow.com/questions/37370015/what-is-the-difference-between-value-iteration-and-policy-iteration
+
+*Why does Monte Carlo Methods iterate the steps in an episode in the reverse order?
+-> Maybe the last state has the highest reward?
+   
+*What is TD Learning? (cont..)
+-> 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
